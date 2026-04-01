@@ -48,7 +48,7 @@ export default function Navbar() {
           className={styles.logo}
           onClick={() => router.push('/')}
         >
-          Ashborne
+          Stephen T
         </button>
 
         {/* Desktop nav links */}

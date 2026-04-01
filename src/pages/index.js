@@ -55,7 +55,7 @@ export default function Home() {
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             <p className={styles.label}>Developer & Designer</p>
-            <h1 className={styles.name}>Ashborne</h1>
+            <h1 className={styles.name}>Stephen Thomas</h1>
             <p className={styles.bio}>
               {settings.bio || 'Building purposeful digital experiences.'}
             </p>
