@@ -5,12 +5,12 @@
    ============================================ */
 
 .page {
-  min-height: calc(100vh - 56px);
+  min-height: calc(100svh - 56px);
 }
 
 /* Hero section */
 .hero {
-  min-height: calc(100vh - 56px);
+  min-height: calc(100svh - 56px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -325,4 +325,18 @@
   .featured {
     padding: 3rem 1rem;
   }
+}
+
+.cardImageWrap {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.cardImg {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
 }

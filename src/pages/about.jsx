@@ -58,7 +58,7 @@ export default function About() {
         <section className={styles.bioSection}>
           <div className={styles.bioLeft}>
             <p className={styles.label}>About</p>
-            <h1 className={styles.name}>Ashborne</h1>
+            <h1 className={styles.name}>Stephen Thomas</h1>
           </div>
           <div className={styles.bioRight}>
             <p className={styles.bio}>

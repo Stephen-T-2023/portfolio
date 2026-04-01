@@ -139,6 +139,15 @@ export default function Home() {
                   className={styles.projectCard}
                   onClick={() => router.push(`/projects/${project.slug}`)}
                 >
+                  {project.cover_image && (
+                    <div className={styles.cardImageWrap}>
+                      <img
+                        src={project.cover_image}
+                        alt={project.title}
+                        className={styles.cardImg}
+                      />
+                    </div>
+                  )}
                   <div className={styles.cardContent}>
                     <h3 className={styles.cardTitle}>{project.title}</h3>
                     <p className={styles.cardDescription}>

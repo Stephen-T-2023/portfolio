@@ -71,6 +71,17 @@ export default function ProjectDetail() {
 
         {/* Project header */}
         <div className={styles.projectHeader}>
+          {/* Cover image — shown if one has been set via admin */}
+            {project.cover_image && (
+            <div className={styles.coverImage}>
+                <img
+                src={project.cover_image}
+                alt={project.title}
+                className={styles.coverImg}
+                />
+            </div>
+            )}
+          <div className={styles.projectMeta}>
           <div className={styles.headerLeft}>
             {project.featured && (
               <span className={styles.featuredBadge}>Featured</span>
@@ -79,7 +90,6 @@ export default function ProjectDetail() {
             <p className={styles.description}>{project.description}</p>
           </div>
 
-          {/* Links and tags */}
           <div className={styles.headerRight}>
             <div className={styles.links}>
               {project.github_url && (
@@ -102,6 +112,7 @@ export default function ProjectDetail() {
               </div>
             )}
           </div>
+        </div>
         </div>
 
         {/* Devlog section */}

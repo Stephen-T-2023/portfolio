@@ -36,7 +36,7 @@
 /* Sidebar + main layout */
 .layout {
   display: flex;
-  min-height: calc(100vh - 56px);
+  min-height: calc(100svh - 56px);
 }
 
 .sidebar {
@@ -47,7 +47,7 @@
   padding: 1.5rem 0;
   position: sticky;
   top: 56px;
-  height: calc(100vh - 56px);
+  height: calc(100svh - 56px);
 }
 
 .sidebarProject {
@@ -427,6 +427,69 @@
   }
 
   .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Images section */
+.uploadLabel {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-accent);
+  border: 1px solid var(--colour-accent);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.uploadLabel:hover {
+  background: var(--colour-accent);
+  color: var(--colour-bg-primary);
+}
+
+/* Hide the actual file input — label acts as the button */
+.fileInput {
+  display: none;
+}
+
+.imagesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.imageCard {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.imageCard:hover {
+  border-color: var(--colour-accent);
+}
+
+.imagePreview {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.imageActions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--colour-border);
+}
+
+@media (max-width: 768px) {
+  .imagesGrid {
     grid-template-columns: 1fr;
   }
 }

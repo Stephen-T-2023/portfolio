@@ -90,7 +90,17 @@ export default function Projects() {
                 className={`${styles.projectCard} ${project.featured ? styles.featured : ''}`}
                 onClick={() => router.push(`/projects/${project.slug}`)}
               >
-                {/* Featured badge */}
+                {/* Cover image if available */}
+                {project.cover_image && (
+                  <div className={styles.cardImage}>
+                    <img
+                      src={project.cover_image}
+                      alt={project.title}
+                      className={styles.cardImg}
+                    />
+                  </div>
+                )}
+
                 {project.featured && (
                   <span className={styles.featuredBadge}>Featured</span>
                 )}

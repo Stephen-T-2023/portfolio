@@ -38,6 +38,9 @@ export default function AdminProjectEdit() {
   const [creatingDevlog, setCreatingDevlog] = useState(false)
   const [showDevlogForm, setShowDevlogForm] = useState(false)
 
+  const [uploading, setUploading] = useState(false)
+  const [images, setImages] = useState([])
+
   useEffect(() => {
     if (!id) return
 
@@ -50,6 +53,7 @@ export default function AdminProjectEdit() {
 
       await fetchProject()
       await fetchDevlogs()
+      await fetchImages()
       setLoading(false)
     }
 
@@ -94,6 +98,107 @@ export default function AdminProjectEdit() {
       toast.error('Failed to load devlog entries')
     } else {
       setDevlogs(data)
+    }
+  }
+
+  /* Fetch all images for this project */
+  async function fetchImages() {
+    const { data, error } = await supabase
+      .from('project_images')
+      .select('*')
+      .eq('project_id', id)
+      .order('order', { ascending: true })
+
+    if (error) {
+      toast.error('Failed to load images')
+    } else {
+      setImages(data)
+    }
+  }
+
+  /* Handle image file upload to Supabase Storage
+     then save the public URL to project_images table */
+  async function handleImageUpload(e) {
+    const file = e.target.files[0]
+    if (!file) return
+    setUploading(true)
+
+    /* Create a unique filename using timestamp */
+    const fileExt = file.name.split('.').pop()
+    const fileName = `${id}-${Date.now()}.${fileExt}`
+
+    /* Upload file to Supabase Storage bucket */
+    const { error: uploadError } = await supabase.storage
+      .from('project-images')
+      .upload(fileName, file)
+
+    if (uploadError) {
+      toast.error('Failed to upload image')
+      setUploading(false)
+      return
+    }
+
+    /* Get the public URL of the uploaded file */
+    const { data: { publicUrl } } = supabase.storage
+      .from('project-images')
+      .getPublicUrl(fileName)
+
+    /* Save the URL to the project_images table */
+    const { data, error: dbError } = await supabase
+      .from('project_images')
+      .insert([{
+        project_id: id,
+        url: publicUrl,
+        order: images.length,
+      }])
+      .select()
+
+    if (dbError) {
+      toast.error('Failed to save image')
+    } else {
+      setImages([...images, data[0]])
+      toast.success('Image uploaded')
+    }
+
+    setUploading(false)
+  }
+
+  /* Delete an image from storage and database */
+  async function handleDeleteImage(image) {
+    /* Extract filename from the full URL */
+    const fileName = image.url.split('/').pop()
+
+    /* Delete from Supabase Storage */
+    await supabase.storage
+      .from('project-images')
+      .remove([fileName])
+
+    /* Delete from database */
+    const { error } = await supabase
+      .from('project_images')
+      .delete()
+      .eq('id', image.id)
+
+    if (error) {
+      toast.error('Failed to delete image')
+    } else {
+      setImages(images.filter(img => img.id !== image.id))
+      toast.success('Image deleted')
+    }
+  }
+
+  /* Set a project image as the cover image by saving
+     its URL to the projects table cover_image column */
+  async function handleSetCover(image) {
+    const { error } = await supabase
+      .from('projects')
+      .update({ cover_image: image.url })
+      .eq('id', id)
+
+    if (error) {
+      toast.error('Failed to set cover image')
+    } else {
+      toast.success('Cover image set')
     }
   }
 
@@ -207,6 +312,13 @@ export default function AdminProjectEdit() {
             >
               <span>Devlog</span>
               <span className={styles.sidebarCount}>{devlogs.length}</span>
+            </button>
+            <button
+              className={`${styles.sidebarLink} ${activeSection === 'images' ? styles.sidebarLinkActive : ''}`}
+              onClick={() => setActiveSection('images')}
+            >
+              <span>Images</span>
+              <span className={styles.sidebarCount}>{images.length}</span>
             </button>
           </nav>
         </aside>
@@ -388,6 +500,56 @@ export default function AdminProjectEdit() {
                     />
                   ))}
                 </ul>
+              )}
+            </div>
+          )}
+          {/* Images section */}
+          {activeSection === 'images' && (
+            <div className={styles.section}>
+              <div className={styles.sectionHeader}>
+                <h2>Images</h2>
+                <label className={styles.uploadLabel}>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className={styles.fileInput}
+                    disabled={uploading}
+                  />
+                  {uploading ? 'Uploading...' : '+ Upload Image'}
+                </label>
+              </div>
+
+              {images.length === 0 ? (
+                <div className={styles.emptyState}>
+                  <p>No images yet. Upload one above.</p>
+                </div>
+              ) : (
+                <div className={styles.imagesGrid}>
+                  {images.map(image => (
+                    <div key={image.id} className={styles.imageCard}>
+                      <img
+                        src={image.url}
+                        alt={image.caption || 'Project image'}
+                        className={styles.imagePreview}
+                      />
+                      <div className={styles.imageActions}>
+                        <button
+                          className={styles.actionButton}
+                          onClick={() => handleSetCover(image)}
+                        >
+                          Set as cover
+                        </button>
+                        <button
+                          className={styles.deleteButton}
+                          onClick={() => handleDeleteImage(image)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
           )}

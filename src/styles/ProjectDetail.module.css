@@ -5,7 +5,7 @@
    ============================================ */
 
 .page {
-  min-height: calc(100vh - 56px);
+  min-height: calc(100svh - 56px);
   padding: 4rem 2rem;
 }
 
@@ -35,13 +35,33 @@
 
 /* Project header */
 .projectHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--colour-border);
+}
+
+.coverImage {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--colour-border);
+}
+
+.coverImg {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.projectMeta {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 3rem;
   align-items: start;
-  margin-bottom: 4rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--colour-border);
 }
 
 .featuredBadge {
