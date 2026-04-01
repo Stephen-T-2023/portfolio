@@ -1,0 +1,97 @@
+/* ============================================
+   AdminSettings.module.css
+   Ashborne Portfolio
+   Styles for the admin settings page
+   ============================================ */
+
+.container {
+  min-height: 100vh;
+  background: var(--colour-bg-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--colour-border);
+  background: var(--colour-bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--colour-accent);
+  letter-spacing: 0.1em;
+}
+
+.backButton {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h2 {
+  margin-bottom: 0.25rem;
+}
+
+.pageHeader p {
+  margin-bottom: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-text-secondary);
+}
+
+.saveButton {
+  padding: 0.75rem;
+  border-color: var(--colour-success);
+  color: var(--colour-success);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+.saveButton:hover {
+  background: var(--colour-success);
+  color: var(--colour-bg-primary);
+}
+
+.saveButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1.5rem 1rem;
+  }
+}

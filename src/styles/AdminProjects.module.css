@@ -1,0 +1,371 @@
+/* ============================================
+   AdminProjects.module.css
+   Ashborne Portfolio
+   Styles for the admin projects page
+   ============================================ */
+
+.container {
+  min-height: 100vh;
+  background: var(--colour-bg-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--colour-border);
+  background: var(--colour-bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--colour-accent);
+  letter-spacing: 0.1em;
+}
+
+.backButton {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.pageHeader h2 {
+  margin-bottom: 0.25rem;
+}
+
+.pageHeader p {
+  margin-bottom: 0;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--colour-text-muted);
+}
+
+.newButton {
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.newButton:hover {
+  background: var(--colour-accent);
+  color: var(--colour-bg-primary);
+}
+
+/* Create project form */
+.createForm {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.createForm h3 {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-text-secondary);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.select {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  background: var(--colour-bg-secondary);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  color: var(--colour-text-primary);
+  width: 100%;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--colour-accent);
+}
+
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--colour-border);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--colour-text-secondary);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+}
+
+.checkbox {
+  width: auto;
+  cursor: pointer;
+  accent-color: var(--colour-accent);
+}
+
+.submitButton {
+  padding: 0.5rem 1.25rem;
+  border-color: var(--colour-success);
+  color: var(--colour-success);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.submitButton:hover {
+  background: var(--colour-success);
+  color: var(--colour-bg-primary);
+}
+
+/* Empty state */
+.emptyState {
+  padding: 3rem 0;
+  text-align: center;
+  border: 1px dashed var(--colour-border);
+  border-radius: var(--radius-lg);
+}
+
+.emptyState p {
+  color: var(--colour-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+/* Projects list */
+.projectList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.projectItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  transition: border-color var(--transition-fast);
+}
+
+.projectItem:hover {
+  border-color: var(--colour-accent);
+}
+
+.projectInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.projectMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Status badge */
+.statusBadge {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+}
+
+.published {
+  color: var(--colour-success);
+  border-color: var(--colour-success);
+}
+
+.draft {
+  color: var(--colour-text-muted);
+  border-color: var(--colour-border);
+}
+
+.featuredBadge {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--colour-accent);
+  color: var(--colour-accent);
+}
+
+.projectTitle {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: var(--colour-text-primary);
+}
+
+.projectSlug {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--colour-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--colour-text-muted);
+  background: var(--colour-bg-secondary);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.5rem;
+}
+
+/* Action buttons */
+.projectActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.actionButton {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  color: var(--colour-text-muted);
+  border-color: var(--colour-border);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.actionButton:hover {
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+}
+
+.deleteButton {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  color: var(--colour-text-muted);
+  border-color: var(--colour-border);
+  letter-spacing: 0.1em;
+}
+
+.deleteButton:hover {
+  border-color: var(--colour-danger);
+  color: var(--colour-danger);
+}
+
+.confirmText {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--colour-danger);
+  letter-spacing: 0.05em;
+}
+
+.confirmButton {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  border-color: var(--colour-danger);
+  color: var(--colour-danger);
+  letter-spacing: 0.1em;
+}
+
+.confirmButton:hover {
+  background: var(--colour-danger);
+  color: var(--colour-bg-primary);
+}
+
+.cancelButton {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  border-color: var(--colour-border);
+  color: var(--colour-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.cancelButton:hover {
+  border-color: var(--colour-text-secondary);
+  color: var(--colour-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main {
+    padding: 1.5rem 1rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projectActions {
+    flex-wrap: wrap;
+  }
+}

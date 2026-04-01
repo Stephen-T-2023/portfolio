@@ -1,0 +1,194 @@
+/* ============================================
+   Projects.module.css
+   Ashborne Portfolio
+   Styles for the public projects page
+   ============================================ */
+
+.page {
+  min-height: calc(100vh - 56px);
+  padding: 4rem 2rem;
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h1 {
+  margin-bottom: 0.25rem;
+}
+
+.pageHeader p {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--colour-text-muted);
+  margin-bottom: 0;
+  letter-spacing: 0.05em;
+}
+
+/* Tag filter bar */
+.tagFilter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.tagButton {
+  font-size: 0.7rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+  border: 1px solid var(--colour-border);
+  color: var(--colour-text-muted);
+  background: none;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+}
+
+.tagButton:hover {
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+}
+
+.tagButtonActive {
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+  background: transparent;
+}
+
+/* Projects grid */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* Project card */
+.projectCard {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: border-color var(--transition-fast);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--colour-text-primary);
+  position: relative;
+  min-height: 180px;
+}
+
+.projectCard:hover {
+  border-color: var(--colour-accent);
+  color: var(--colour-text-primary);
+}
+
+/* Featured card gets accent border */
+.featured {
+  border-color: var(--colour-accent);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-accent);
+  border: 1px solid var(--colour-accent);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.5rem;
+}
+
+.cardBody {
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  color: var(--colour-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.cardDescription {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--colour-text-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--colour-text-muted);
+  background: var(--colour-bg-secondary);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.5rem;
+}
+
+.cardArrow {
+  font-size: 1rem;
+  color: var(--colour-text-muted);
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.projectCard:hover .cardArrow {
+  color: var(--colour-accent);
+}
+
+/* Empty state */
+.emptyState {
+  padding: 3rem 0;
+  text-align: center;
+  border: 1px dashed var(--colour-border);
+  border-radius: var(--radius-lg);
+}
+
+.emptyState p {
+  color: var(--colour-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 2rem 1rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+}

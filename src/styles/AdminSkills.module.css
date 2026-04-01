@@ -1,0 +1,233 @@
+/* ============================================
+   AdminSkills.module.css
+   Ashborne Portfolio
+   Styles for the admin skills page
+   ============================================ */
+
+.container {
+  min-height: 100vh;
+  background: var(--colour-bg-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--colour-border);
+  background: var(--colour-bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--colour-accent);
+  letter-spacing: 0.1em;
+}
+
+.backButton {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h2 {
+  margin-bottom: 0.25rem;
+}
+
+.pageHeader p {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--colour-text-muted);
+  margin-bottom: 0;
+}
+
+/* Add skill form */
+.createForm {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.formRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.field label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-text-secondary);
+}
+
+.select {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  background: var(--colour-bg-secondary);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  color: var(--colour-text-primary);
+  width: 100%;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--colour-accent);
+}
+
+.addButton {
+  padding: 0.5rem 1.25rem;
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.addButton:hover {
+  background: var(--colour-accent);
+  color: var(--colour-bg-primary);
+}
+
+/* Empty state */
+.emptyState {
+  padding: 3rem 0;
+  text-align: center;
+  border: 1px dashed var(--colour-border);
+  border-radius: var(--radius-lg);
+}
+
+.emptyState p {
+  color: var(--colour-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+/* Categories grid */
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.categoryGroup {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.categoryTitle {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--colour-text-muted);
+  margin-bottom: 1rem;
+}
+
+.skillList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: var(--colour-bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.skillName {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--colour-text-primary);
+  letter-spacing: 0.03em;
+}
+
+.skillActions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.deleteButton {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  color: var(--colour-text-muted);
+  border-color: var(--colour-border);
+  letter-spacing: 0.1em;
+}
+
+.deleteButton:hover {
+  border-color: var(--colour-danger);
+  color: var(--colour-danger);
+}
+
+.confirmButton {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-color: var(--colour-danger);
+  color: var(--colour-danger);
+  letter-spacing: 0.1em;
+}
+
+.confirmButton:hover {
+  background: var(--colour-danger);
+  color: var(--colour-bg-primary);
+}
+
+.cancelButton {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-color: var(--colour-border);
+  color: var(--colour-text-muted);
+  letter-spacing: 0.1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main {
+    padding: 1.5rem 1rem;
+  }
+
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

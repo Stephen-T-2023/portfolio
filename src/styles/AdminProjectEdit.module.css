@@ -1,0 +1,432 @@
+/* ============================================
+   AdminProjectEdit.module.css
+   Ashborne Portfolio
+   Styles for the individual project edit page
+   ============================================ */
+
+.container {
+  min-height: 100vh;
+  background: var(--colour-bg-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--colour-border);
+  background: var(--colour-bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--colour-accent);
+  letter-spacing: 0.1em;
+}
+
+.backButton {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* Sidebar + main layout */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 56px);
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--colour-border);
+  background: var(--colour-bg-card);
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+}
+
+.sidebarProject {
+  padding: 0 1.25rem 1.25rem;
+  border-bottom: 1px solid var(--colour-border);
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sidebarLabel {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--colour-text-muted);
+}
+
+.sidebarTitle {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  color: var(--colour-text-primary);
+  line-height: 1.3;
+}
+
+.sidebarStatus {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  align-self: flex-start;
+}
+
+.published {
+  color: var(--colour-success);
+  border-color: var(--colour-success);
+}
+
+.draft {
+  color: var(--colour-text-muted);
+  border-color: var(--colour-border);
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0 0.75rem;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--colour-text-secondary);
+  text-transform: none;
+  transition: all var(--transition-fast);
+}
+
+.sidebarLink:hover {
+  background: var(--colour-bg-secondary);
+  color: var(--colour-text-primary);
+  border: none;
+}
+
+.sidebarLinkActive {
+  background: var(--colour-bg-secondary);
+  color: var(--colour-accent);
+  border: none;
+}
+
+.sidebarLinkActive:hover {
+  color: var(--colour-accent);
+}
+
+.sidebarCount {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  color: var(--colour-text-muted);
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 2.5rem;
+  min-width: 0;
+}
+
+.section {
+  max-width: 760px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader h2 {
+  margin-bottom: 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-text-secondary);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.select {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  background: var(--colour-bg-secondary);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  color: var(--colour-text-primary);
+  width: 100%;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--colour-accent);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--colour-text-secondary);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+}
+
+.checkbox {
+  width: auto;
+  cursor: pointer;
+  accent-color: var(--colour-accent);
+}
+
+.saveButton {
+  padding: 0.5rem 1.25rem;
+  border-color: var(--colour-success);
+  color: var(--colour-success);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.saveButton:hover {
+  background: var(--colour-success);
+  color: var(--colour-bg-primary);
+}
+
+.newButton {
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.newButton:hover {
+  background: var(--colour-accent);
+  color: var(--colour-bg-primary);
+}
+
+/* Devlog form */
+.devlogForm {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Devlog list */
+.devlogList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.devlogItem {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.devlogItem:hover {
+  border-color: var(--colour-accent);
+}
+
+.devlogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  gap: 1rem;
+}
+
+.devlogInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.devlogTitle {
+  font-size: 0.95rem;
+  color: var(--colour-text-primary);
+  margin-bottom: 0;
+}
+
+.devlogDate {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--colour-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.devlogActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.devlogContent {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--colour-border);
+  background: var(--colour-bg-secondary);
+}
+
+.devlogContent p {
+  font-size: 0.9rem;
+  color: var(--colour-text-secondary);
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+/* Empty state */
+.emptyState {
+  padding: 3rem 0;
+  text-align: center;
+  border: 1px dashed var(--colour-border);
+  border-radius: var(--radius-lg);
+}
+
+.emptyState p {
+  color: var(--colour-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+/* Shared action button styles */
+.actionButton {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  color: var(--colour-text-muted);
+  border-color: var(--colour-border);
+  letter-spacing: 0.1em;
+}
+
+.actionButton:hover {
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+}
+
+.deleteButton {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  color: var(--colour-text-muted);
+  border-color: var(--colour-border);
+  letter-spacing: 0.1em;
+}
+
+.deleteButton:hover {
+  border-color: var(--colour-danger);
+  color: var(--colour-danger);
+}
+
+.confirmText {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--colour-danger);
+  letter-spacing: 0.05em;
+}
+
+.confirmButton {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  border-color: var(--colour-danger);
+  color: var(--colour-danger);
+  letter-spacing: 0.1em;
+}
+
+.confirmButton:hover {
+  background: var(--colour-danger);
+  color: var(--colour-bg-primary);
+}
+
+.cancelButton {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.75rem;
+  border-color: var(--colour-border);
+  color: var(--colour-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.cancelButton:hover {
+  border-color: var(--colour-text-secondary);
+  color: var(--colour-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--colour-border);
+    padding: 1rem 0;
+  }
+
+  .sidebarNav {
+    flex-direction: row;
+  }
+
+  .main {
+    padding: 1.5rem 1rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}

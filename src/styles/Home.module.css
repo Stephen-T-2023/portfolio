@@ -1,0 +1,328 @@
+/* ============================================
+   Home.module.css
+   Ashborne Portfolio
+   Styles for the landing page
+   ============================================ */
+
+.page {
+  min-height: calc(100vh - 56px);
+}
+
+/* Hero section */
+.hero {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  border-bottom: 1px solid var(--colour-border);
+}
+
+.heroInner {
+  max-width: 960px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Decorative right panel */
+.heroDecor {
+  display: flex;
+  justify-content: center;
+}
+
+.decorBox {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.decorLabel {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--colour-text-muted);
+}
+
+.decorProject {
+  font-family: var(--font-primary);
+  font-size: 1.75rem;
+  color: var(--colour-accent);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.decorSub {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--colour-text-secondary);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.decorDivider {
+  height: 1px;
+  background: var(--colour-border);
+  margin: 0.75rem 0;
+}
+
+.decorStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.decorTag {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--colour-text-muted);
+  background: var(--colour-bg-secondary);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.6rem;
+}
+
+/* Small label above the name */
+.label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--colour-text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Main name heading */
+.name {
+  font-size: 4rem;
+  color: var(--colour-accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.bio {
+  font-size: 1.1rem;
+  color: var(--colour-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+/* CTA buttons */
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  padding: 0.75rem 2rem;
+  border-color: var(--colour-accent);
+  color: var(--colour-accent);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+.primaryButton:hover {
+  background: var(--colour-accent);
+  color: var(--colour-bg-primary);
+}
+
+.secondaryButton {
+  padding: 0.75rem 2rem;
+  border-color: var(--colour-border);
+  color: var(--colour-text-secondary);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+.secondaryButton:hover {
+  border-color: var(--colour-text-secondary);
+  color: var(--colour-text-primary);
+}
+
+/* Social links row */
+.socials {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colour-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.socialLink:hover {
+  color: var(--colour-accent);
+}
+
+/* Featured projects section */
+.featured {
+  padding: 5rem 2rem;
+  background: var(--colour-bg-secondary);
+}
+
+.sectionInner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.sectionHeader h2 {
+  margin-bottom: 0;
+}
+
+.viewAll {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--colour-accent);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.viewAll:hover {
+  border: none;
+  color: var(--colour-accent-hover);
+}
+
+/* Projects grid */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Project card */
+.projectCard {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: border-color var(--transition-fast);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--colour-text-primary);
+}
+
+.projectCard:hover {
+  border-color: var(--colour-accent);
+  color: var(--colour-text-primary);
+}
+
+.cardContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  color: var(--colour-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--colour-text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--colour-text-muted);
+  background: var(--colour-bg-secondary);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.5rem;
+}
+
+.cardArrow {
+  font-size: 1rem;
+  color: var(--colour-text-muted);
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.projectCard:hover .cardArrow {
+  color: var(--colour-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  /* Stack hero columns on mobile */
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .heroDecor {
+    justify-content: flex-start;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured {
+    padding: 3rem 1rem;
+  }
+}

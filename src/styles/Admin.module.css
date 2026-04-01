@@ -1,0 +1,154 @@
+/* ============================================
+   Admin.module.css
+   Ashborne Portfolio
+   Shared styles for admin pages
+   ============================================ */
+
+.container {
+  min-height: 100vh;
+  background: var(--colour-bg-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--colour-border);
+  background: var(--colour-bg-card);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--colour-accent);
+  letter-spacing: 0.1em;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.email {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--colour-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.logoutButton {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageHeader h2 {
+  margin-bottom: 0.25rem;
+}
+
+.pageHeader p {
+  margin-bottom: 0;
+}
+
+/* Stats overview grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.statCard {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statNumber {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  color: var(--colour-accent);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--colour-text-muted);
+}
+
+/* Navigation cards grid */
+.navGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.navCard {
+  background: var(--colour-bg-card);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--colour-text-primary);
+}
+
+.navCard:hover {
+  border-color: var(--colour-accent);
+  color: var(--colour-text-primary);
+}
+
+.navCard h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--colour-text-primary);
+}
+
+.navCard p {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--colour-text-muted);
+  margin-bottom: 0;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    padding: 1.5rem 1rem;
+  }
+}
