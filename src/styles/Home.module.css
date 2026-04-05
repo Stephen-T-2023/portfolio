@@ -340,3 +340,58 @@
   object-fit: cover;
   display: block;
 }
+
+/* Decor navigation */
+.decorNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.decorNavButton {
+  background: none;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.875rem;
+  color: var(--colour-text-muted);
+  cursor: pointer;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.decorNavButton:hover {
+  border: none;
+  color: var(--colour-accent);
+}
+
+.decorDots {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.decorDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--colour-border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  min-width: unset;
+}
+
+.decorDot:hover {
+  background: var(--colour-text-muted);
+  border: none;
+}
+
+.decorDotActive {
+  background: var(--colour-accent);
+}
+
+.decorDotActive:hover {
+  background: var(--colour-accent);
+}

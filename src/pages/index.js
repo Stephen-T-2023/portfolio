@@ -6,16 +6,18 @@
    Fetches bio and social links from Supabase.
    ============================================ */
 
-import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import supabase from '../lib/supabaseClient'
 import styles from '../styles/Home.module.css'
+import { useEffect, useState, useRef } from 'react'
 
 export default function Home() {
   const router = useRouter()
   const [settings, setSettings] = useState({})
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
+  const [currentProject, setCurrentProject] = useState(0)
+  const timerRef = useRef(null)
 
   useEffect(() => {
     async function fetchData() {
@@ -46,6 +48,27 @@ export default function Home() {
 
     fetchData()
   }, [])
+
+  /* Auto cycle through projects every 4 seconds */
+  useEffect(() => {
+    if (projects.length <= 1) return
+    startTimer()
+    return () => clearInterval(timerRef.current)
+  }, [projects])
+
+  function startTimer() {
+    clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => {
+      setCurrentProject(p =>
+        p === projects.length - 1 ? 0 : p + 1
+      )
+    }, 4000)
+  }
+
+  /* Reset timer when user manually navigates */
+  function resetTimer() {
+    startTimer()
+  }
 
   return (
     <div className={styles.page}>
@@ -100,19 +123,63 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Decorative right panel */}
+          {/* Decorative right panel — cycles through featured projects */}
           <div className={styles.heroDecor}>
             <div className={styles.decorBox}>
-              <span className={styles.decorLabel}>Current build</span>
-              <span className={styles.decorProject}>Vestige</span>
-              <span className={styles.decorSub}>Revision & study app</span>
+              <span className={styles.decorLabel}>Current builds</span>
+              <span className={styles.decorProject}>
+                {projects[currentProject]?.title}
+              </span>
+              <span className={styles.decorSub}>
+                {projects[currentProject]?.short_description}
+              </span>
               <div className={styles.decorDivider} />
               <span className={styles.decorLabel}>Stack</span>
               <div className={styles.decorStack}>
-                {['Next.js', 'React', 'Supabase', 'CSS'].map(t => (
+                {projects[currentProject]?.tags?.slice(0, 4).map(t => (
                   <span key={t} className={styles.decorTag}>{t}</span>
                 ))}
               </div>
+
+              {/* Navigation dots */}
+              {projects.length > 1 && (
+                <div className={styles.decorNav}>
+                  <button
+                    className={styles.decorNavButton}
+                    onClick={() => {
+                      setCurrentProject(p =>
+                        p === 0 ? projects.length - 1 : p - 1
+                      )
+                      resetTimer()
+                    }}
+                  >
+                    ←
+                  </button>
+                  <div className={styles.decorDots}>
+                    {projects.map((_, i) => (
+                      <button
+                        key={i}
+                        className={`${styles.decorDot} ${i === currentProject ? styles.decorDotActive : ''}`}
+                        onClick={() => {
+                          setCurrentProject(i)
+                          resetTimer()
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    className={styles.decorNavButton}
+                    onClick={() => {
+                      setCurrentProject(p =>
+                        p === projects.length - 1 ? 0 : p + 1
+                      )
+                      resetTimer()
+                    }}
+                  >
+                    →
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
